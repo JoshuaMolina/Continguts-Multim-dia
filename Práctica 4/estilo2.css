@@ -1,0 +1,27 @@
+article{
+  float:left;
+  width: 100 px;
+  border: 10px;
+}
+
+#contenedor{
+	width: 900px;
+}
+
+h1{
+	color: black;
+    font-family: monospace;
+    font-size: 30px;
+}
+
+h2{
+	color: black;
+    font-family: monospace;
+    font-size:16px;
+}
+
+h3{
+	color: black;
+    font-family: monospace;
+    font-size:14px;
+}
