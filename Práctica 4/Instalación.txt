@@ -1,0 +1,15 @@
+Código para instalar node.js y express.js usando npm
+
+- sudo apt-get install nodejs
+- sudo apt-get install npm
+- npm install express
+
+Creamos la carpeta p4 para poder trabajar en el mismo directorio
+
+- mkdir p4
+- cd p4
+
+Creamos el fichero app.js para los ficheros estáticos 
+
+- touch app.js
+- nodejs app.js
