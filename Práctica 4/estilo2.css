@@ -25,3 +25,7 @@ h3{
     font-family: monospace;
     font-size:14px;
 }
+
+#Menu{
+  border: black 2px solid;
+}
