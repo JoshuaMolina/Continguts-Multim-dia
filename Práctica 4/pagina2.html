@@ -3,9 +3,22 @@
 <head>
     <meta charset="utf-8">
 	<title> Cazadoras Hombre </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script language="javascript" src="compras.js"></script>
 	<link rel="stylesheet" href="estilo2.css" type="text/css"/>
 </head>
+
+<script type="text/javascript">
+  $(document).ready(function(){ 
+    $("ul.subnavegador").not('.selected').hide();
+    $("a.desplegable").click(function(e){
+      var desplegable = $(this).parent().find("ul.subnavegador");
+      $('.desplegable').parent().find("ul.subnavegador").not(desplegable).slideUp('slow');
+      desplegable.slideToggle('slow');
+      e.preventDefault();
+    })
+ });
+</script>
 
 <body background="fondo.jpg">
 
@@ -17,10 +30,13 @@
     <center> <h1> Cazadoras Hombre </h1> </center>
 </header>
 
-<div id="Menu" class="menu">
-    <input type="button" value="Todos los articulos" onClick="window.location.href='/pagina1.html'">
-    <input type="button" value="Ofertas" onClick="window.location.href='/pagina2.html'">
-</div>
+<ul class="navegador">
+  <li><a href="#" class="desplegable" title="Menu">Menu</a>
+    <ul class="subnavegador">
+      <li><input type="button" value="Todos los articulos" onClick="window.location.href='/pagina1.html'"></li>
+      <li><input type="button" value="Ofertas" onClick="window.location.href='/pagina2.html'"></li>
+    </ul>
+</ul>
 
 <div id="contenedor">
 <section id="s1">
