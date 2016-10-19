@@ -1,0 +1,7 @@
+mixin picture(sourceImage, titulo, price)
+	div.col-md-4.product-box
+		article.imagen
+			img(src=sourceImage, width="150")
+			p #{titulo}
+			p #{price} €
+			input.boton(type="button", value="Comprar", onclick="comprar('#{titulo}', '#{price}');")
