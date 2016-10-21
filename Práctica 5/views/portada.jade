@@ -1,8 +1,17 @@
 extends base
 include mixins/picture
 
+// Este código sirve hasta el punto 3
+// block content
+//    div.row
+//        - for (var i = 0; i < 9; ++i) {
+//            +picture(pics[i].href, pics[i].titulo, pics[i].getPrice())
+//        - }
+
+// Este código sirve para el punto 4
+
 block content
     div.row
-        - for (var i = 0; i < 9; ++i) {
-            +picture(pics[i].href, pics[i].titulo, pics[i].getPrice())
+        - for (var i = 0; i < pics.length; ++i) {
+            +picture(pics[i].name, pics[i].image, pics[i].getPrice())
         - }

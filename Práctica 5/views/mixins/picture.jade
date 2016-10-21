@@ -1,7 +1,19 @@
-mixin picture(sourceImage, titulo, price)
+// Este código sirve hasta el punto 3
+
+// mixin picture(sourceImage, titulo, price)
+// 	div.col-md-4.product-box
+//		article.imagen
+//			img(src=sourceImage, width="150")
+//			p #{titulo}
+//			p #{price} €
+//			input.boton(type="button", value="Comprar", onclick="comprar('#{titulo}', '#{price}');")
+
+// Este codigo es para el punto 4
+
+mixin picture(name, sourceImage, price)
 	div.col-md-4.product-box
 		article.imagen
 			img(src=sourceImage, width="150")
-			p #{titulo}
+			p #{name}
 			p #{price} €
-			input.boton(type="button", value="Comprar", onclick="comprar('#{titulo}', '#{price}');")
+			input.boton(type="button", value="Comprar", onclick="comprar('#{name}', '#{price}');", style="color:#000000;background-color:#ffffff")

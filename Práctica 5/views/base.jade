@@ -20,11 +20,12 @@ head
   script(src='public/client.js')
 
 body
-  center
-    img(src='http://www.shoppingformen.com.au/wp-content/uploads/2013/09/sfm-logo1.png', width='500', border='4')
+  //center
+    // Logo de antes	
+    //img(src='http://www.shoppingformen.com.au/wp-content/uploads/2013/09/sfm-logo1.png', width='500', border='4')
   header
     center
-      h1  SfM 
+      h1(style="color:#ffffff")  SfM 
 
   - var navmenu = { Portada: '/', "Tiendas": '/recent', "Contacto": '/recent' }
   nav.navbar.navbar-default(role='navigation')
@@ -34,7 +35,9 @@ body
         span.iconbar
         span.iconbar
         span.iconbar
-      a(href='#').navbar-brand Cazadoras Para Hombres
+      // Para la página de antes
+      //a(href='#').navbar-brand Cazadoras Para Hombres
+      a(href='#').navbar-brand SfM
     div#jcs-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
 
@@ -56,7 +59,7 @@ body
     block content
     
     center
-      h5
+      h5(style="color:#ffffff")
         aside#total
           b#suma  Total
   

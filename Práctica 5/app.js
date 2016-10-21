@@ -12,11 +12,10 @@ app.use("/libs",express.static('node_modules/bootstrap/dist'));
 // Our CSS and JS files
 app.use("/public",express.static('public'));
 
+/*
 
+Este código sirve hasta el punto 3, para cargar las imáganes de nuestra tienda.
 
-// Use 500px API to get random pictures for our products
-var API500px = require('500px');
-var api500px = new API500px("YecP85RjzG08DN0MqvgFa0N780dNaDmJX6iTPbYp");
 var pics = [
     new Item("http://static.zara.net/photos///2016/I/0/2/p/8713/350/500/2/w/400/8713350500_2_1_1.jpg?ts=1471885139211", "Cazadora Camuflaje", "59.95"),
     new Item("http://static.zara.net/photos///2016/I/0/2/p/6719/364/600/2/w/400/6719364600_2_3_1.jpg?ts=1473421003944", "Cazadora Acolchada", "49.95"),
@@ -29,15 +28,19 @@ var pics = [
     new Item("http://static.zara.net/photos///2016/I/0/2/p/0706/207/400/3/w/200/0706207400_1_1_1.jpg?ts=1474283685412", "Cazadora Bomber", "29.95")
 ];
 
+*/
 
-/*
-api500px.photos.getPopular({'sort': 'created_at', 'rpp': '10','image_size':200},  function(error, results) {
-    // Do something
-    pics = results.photos.map(function(a){
-        // Compose object to be used in show items template
-        return new Item(a.image_url);
-    });
-});*/
+// Use 500px API to get random pictures for our products
+var API500px = require('500px');
+var api500px = new API500px("YecP85RjzG08DN0MqvgFa0N780dNaDmJX6iTPbYp");
+
+api500px.photos.searchByTerm('New York', {'sort': 'created_at', 'rpp': '10','image_size':200},  function(error, results) {
+	// Do something
+	pics = results.photos.map(function(a){
+		// Compose object to be used in show items template
+		return new Item(a.image_url);
+	});
+});
 
 // Render frontpage
 app.get('/', function (req, res) {
