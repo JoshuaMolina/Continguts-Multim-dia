@@ -8,10 +8,10 @@ include mixins/picture
 //            +picture(pics[i].href, pics[i].titulo, pics[i].getPrice())
 //        - }
 
-// Este código sirve para el punto 4
+// Este código sirve para el punto 4 y 5
 
 block content
     div.row
         - for (var i = 0; i < pics.length; ++i) {
-            +picture(pics[i].name, pics[i].image, pics[i].getPrice())
+            +picture(pics[i])
         - }

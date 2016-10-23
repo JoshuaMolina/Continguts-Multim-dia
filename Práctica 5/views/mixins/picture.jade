@@ -8,12 +8,12 @@
 //			p #{price} €
 //			input.boton(type="button", value="Comprar", onclick="comprar('#{titulo}', '#{price}');")
 
-// Este codigo es para el punto 4
+// Este codigo es para el punto 4 y 5
 
-mixin picture(name, sourceImage, price)
+mixin picture(pics)
 	div.col-md-4.product-box
 		article.imagen
-			img(src=sourceImage, width="150")
-			p #{name}
-			p #{price} €
-			input.boton(type="button", value="Comprar", onclick="comprar('#{name}', '#{price}');", style="color:#000000;background-color:#ffffff")
+			img(src=pics.image, width="150")
+			p #{pics.name}
+			p #{pics.getPrice()} €
+			input.boton(type="button", value="Comprar", onclick="comprar('#{pics.name}', '#{pics.getPrice()}');", style="color:#000000;background-color:#ffffff")

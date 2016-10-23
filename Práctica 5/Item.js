@@ -15,7 +15,7 @@ exports.Item = Item;
 
 */
 
-// Este código sirve a partir del punto 4
+// Este código sirve a partir del punto 4 y 5
 
 var Item = function Item(imagen){
 	this.image = imagen;
