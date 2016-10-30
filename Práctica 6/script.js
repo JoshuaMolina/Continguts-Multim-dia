@@ -80,6 +80,9 @@ $(document).ready(function() {
 	ctx.fillStyle = "#31B404";
         ctx.fillRect(0,15,600,500);
 
+	// Línea del Medio Campo
+	ctx.clearRect(canvas.width/2,0,1,canvas.width/2);
+
         // Escudos
         ctx.drawImage(image1, 50, 50, 50, 50);
         ctx.drawImage(image2, 205, 50, 50, 50);
@@ -89,12 +92,6 @@ $(document).ready(function() {
         ctx.font = "6px Verdana";
         ctx.fillText("MAN.CITY", 40, 10);
         ctx.fillText("DORTMUND", 215, 10);
-
-        // Línea Medio Campo
-        ctx.strokeStyle = "#ffffff";
-        ctx.moveTo(canvas.width/2, 15);
-        ctx.lineTo(canvas.width/2, canvas.height);
-        ctx.stroke();
 
     }
 
