@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geo-Localizacion</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+	var map;
+	var myLatLng;
+	
+	if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            initMap(position.coords.latitude, position.coords.longitude);
+        });
+		
+		function initMap(latitud, longitud) {
+			
+			myLatLng = {lat: latitud, lng: longitud};
+				
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: myLatLng,
+				zoom: 10,
+			});
+				
+			var lugares = [
+				['Tu ubicacion', myLatLng.lat, myLatLng.lng],
+				['Camp Nou', 41.380912, 2.122814],
+				['Plaza Espanya', 41.375040, 2.149116],
+				['Catwalk', 41.385987, 2.196897],
+				['Sagrada Familia', 41.404521, 2.174282],
+			];
+				
+			var infowindow = new google.maps.InfoWindow();
+
+			var nMarker, i;
+
+			nMarker = new google.maps.Marker({
+				position: myLatLng,
+				map: map
+			});
+				
+			google.maps.event.addListener(nMarker, 'click', (function(nMarker) {
+				return function() {
+					infowindow.setContent(lugares[0][0]);
+					infowindow.open(map, nMarker);
+				}
+			})(nMarker, 0));
+			
+			for (i = 1; i < lugares.length; i++) {
+				nMarker = new google.maps.Marker({
+					position: new google.maps.LatLng(lugares[i][1], lugares[i][2]),
+					map: map,
+				});
+
+				google.maps.event.addListener(nMarker, 'click', (function(nMarker, i) {
+					return function() {
+						infowindow.setContent(lugares[i][0]);
+						infowindow.open(map, nMarker);
+					}
+				})(nMarker, i));
+			}
+		}
+    } else {
+		alert("Sorry, geolocation not available.");
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyChWvirr0jSlNSktlk12bJG22svkN6TP7o&callback=initMap"
+    async defer></script>
+  </body>
+</html>
